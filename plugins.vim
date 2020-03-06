@@ -31,7 +31,6 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'rhysd/vim-gfm-syntax'
-Plug 'StanAngeloff/php.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'lifepillar/pgsql.vim'
 Plug 'Raimondi/delimitMate'
@@ -58,6 +57,16 @@ let g:indent_guides_color_change_percent = 3
 let g:indent_guides_guide_size = 1
 
 let g:easygit_enable_command = 1
+
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_virtual_text_enabled = 0
+
+let g:ale_lint_delay = 1000
+let g:ale_fixers = {
+\    '*': ['trim_whitespace'],
+\   'typescript': ['prettier', 'tslint'],
+\}
+let g:ale_fix_on_save = 1
 
 "-- mappings
 
