@@ -1,5 +1,6 @@
 "-- general
 set number relativenumber
+set updatetime=100
 
 "-- searching
 set ignorecase      " Search ignoring case
