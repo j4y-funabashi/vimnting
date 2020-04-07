@@ -36,6 +36,9 @@ Plug 'lifepillar/pgsql.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'tyru/caw.vim'
 
 call plug#end()
 
@@ -45,7 +48,7 @@ set background=dark
 set termguicolors
 colorscheme rakr
 
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
@@ -53,7 +56,7 @@ let g:netrw_winsize = 20
 let g:netrw_browse_split = 4
 
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_color_change_percent = 3
+let g:indent_guides_color_change_percent = 1
 let g:indent_guides_guide_size = 1
 
 let g:easygit_enable_command = 1
@@ -68,9 +71,17 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
+let g:UltiSnipsExpandTrigger="<tab>"
+
+let g:go_fmt_command = "goimports"
+
 "-- mappings
 
 " fzf file search
 nnoremap <leader><leader> :Files<CR>
 " open file browser
 nnoremap <leader>o :Lexplore<CR>
+
+
+nnoremap <leader>dd o<ESC>"=strftime('# %F %T ')<CR>P
+
