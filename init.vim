@@ -10,3 +10,5 @@ let g:maplocalleader=';'
 " ----- Load files
 source ~/.config/nvim/base.vim
 source ~/.config/nvim/plugins.vim
+
+source ~/.config/nvim/coc.vim

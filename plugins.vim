@@ -5,19 +5,18 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'tpope/vim-sleuth'
 Plug 'rhysd/committia.vim'
 Plug 'neoclide/vim-easygit'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdtree'
 
 "-- fuzzy
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-grepper'
+Plug 'dkprice/vim-easygrep'
 
 "-- LSP
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'Shougo/deoplete.nvim'
-Plug 'lighttiger2505/deoplete-vim-lsp'
-Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "-- Lang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -46,34 +45,23 @@ call plug#end()
 "-- Plugin settings
 set background=dark
 set termguicolors
-colorscheme rakr
-
-let g:deoplete#enable_at_startup = 0
+colorscheme gruvbox
 
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
 let g:netrw_browse_split = 4
 
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_color_change_percent = 1
-let g:indent_guides_guide_size = 1
-
 let g:easygit_enable_command = 1
 
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_virtual_text_enabled = 0
-
-let g:ale_lint_delay = 1000
-let g:ale_fixers = {
-\    '*': ['trim_whitespace'],
-\   'typescript': ['prettier', 'tslint'],
-\}
-let g:ale_fix_on_save = 1
-
-let g:UltiSnipsExpandTrigger="<tab>"
-
 let g:go_fmt_command = "goimports"
+
+" vim-easygrep config.
+let g:EasyGrepRoot="repository"
+let g:EasyGrepRecursive=1
+let g:EasyGrepCommand='rg'
+
+let g:airline_powerline_fonts = 1
 
 "-- mappings
 
@@ -81,7 +69,7 @@ let g:go_fmt_command = "goimports"
 nnoremap <leader><leader> :Files<CR>
 " open file browser
 nnoremap <leader>o :Lexplore<CR>
-
-
+" markdown date heading
 nnoremap <leader>dd o<ESC>"=strftime('# %F %T ')<CR>P
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
