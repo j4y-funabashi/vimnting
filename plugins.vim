@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 "-- general
+Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'tpope/vim-sleuth'
 Plug 'rhysd/committia.vim'
@@ -9,6 +10,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-git-status.vim'
 
 "-- fuzzy
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -17,6 +20,13 @@ Plug 'dkprice/vim-easygrep'
 
 "-- LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"-- COC
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-go', {'do': 'yarn install --frozen-lockfile'}
 
 "-- Lang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -38,6 +48,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tyru/caw.vim'
+Plug 'joaohkfaria/vim-jest-snippets'
 
 call plug#end()
 
@@ -68,7 +79,7 @@ let g:airline_powerline_fonts = 1
 " fzf file search
 nnoremap <leader><leader> :Files<CR>
 " open file browser
-nnoremap <leader>o :Lexplore<CR>
+nnoremap <leader>aa :Fern . -reveal=%<CR>
 " markdown date heading
 nnoremap <leader>dd o<ESC>"=strftime('# %F %T ')<CR>P
 
